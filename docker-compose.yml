@@ -3,7 +3,7 @@ version: '3.4'
 services:
   work:
     build: ./
-    command: php bin/hyperf.php start
+    command: bash -c "composer install --no-dev -o && php bin/hyperf.php start"
     container_name: hyperf-demo
     environment:
       - APP_ENV=${APP_ENV}
