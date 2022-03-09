@@ -2,17 +2,15 @@ version: '3.4'
 
 services:
   work:
-    image: hyperf/hyperf:7.4-alpine-v3.11-swoole
+    build: ./
     command: php bin/hyperf.php start
-#    command: php bin/hyperf.php server:watch # dev热更新
-#    command: php -S 127.0.0.1:1100
     container_name: hyperf-demo
     environment:
       - APP_ENV=${APP_ENV}
       - TIMEZONE=Asia/Shanghai
     restart: always
     ports:
-      - "${HTTP_PORT}::9501"
+      - "${HTTP_PORT}:9501"
     volumes:
-      - ./:/hyperf-demo
-    working_dir: /hyperf-demo
+      - ./:/opt/www
+    working_dir: /opt/www
