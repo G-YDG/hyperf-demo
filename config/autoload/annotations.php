@@ -11,7 +11,7 @@ declare(strict_types=1);
  */
 return [
     'scan' => [
-        'paths'              => [
+        'paths' => [
             BASE_PATH . '/app',
         ],
         'ignore_annotations' => [

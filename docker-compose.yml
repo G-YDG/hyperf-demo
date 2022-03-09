@@ -6,11 +6,15 @@ networks:
 services:
   site:
     image: ${IMAGE_NAME}
+#    build: ./
     container_name: hyperf-demo
     environment:
       - APP_ENV=${APP_ENV}
       - TIMEZONE=Asia/Shanghai
     ports:
       - "${SERVICE_PORT}:9501"
+    volumes:
+      - ./:/opt/www
+    working_dir: /opt/www
     networks:
       - hyperf
