@@ -1,16 +1,16 @@
 version: '3.4'
 
+networks:
+  hyperf:
+
 services:
-  work:
-    build: ./
-    command: bash -c "composer install --no-dev -o && php bin/hyperf.php start"
+  site:
+    image: ${IMAGE_NAME}
     container_name: hyperf-demo
     environment:
       - APP_ENV=${APP_ENV}
       - TIMEZONE=Asia/Shanghai
-    restart: always
     ports:
-      - "${HTTP_PORT}:9501"
-    volumes:
-      - ./:/opt/www
-    working_dir: /opt/www
+      - "${SERVICE_PORT}:9501"
+    networks:
+      - hyperf
