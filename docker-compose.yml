@@ -5,8 +5,7 @@ networks:
 
 services:
   site:
-    image: ${IMAGE_NAME}
-#    build: ./
+    build: ./
     container_name: hyperf-demo
     environment:
       - APP_ENV=${APP_ENV}
