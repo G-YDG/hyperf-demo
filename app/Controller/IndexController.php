@@ -11,6 +11,11 @@ declare(strict_types=1);
  */
 namespace App\Controller;
 
+use Hyperf\HttpServer\Annotation\AutoController;
+
+/**
+ * @AutoController
+ */
 class IndexController extends AbstractController
 {
     public function index()
@@ -18,9 +23,24 @@ class IndexController extends AbstractController
         $user = $this->request->input('user', 'Hyperf');
         $method = $this->request->getMethod();
 
-        return [
-            'method' => $method,
-            'message' => "Hello {$user}.",
-        ];
+        return $this->success(
+            [
+                'method' => $method,
+                'message' => "Hello {$user}.",
+            ]
+        );
+    }
+
+    public function login()
+    {
+        $name = $this->request->input('name');
+        $password = $this->request->input('password');
+
+        return $this->success(
+            [
+                'name' => $name,
+                'status' => $name == 'admin' && $password == 'admin',
+            ]
+        );
     }
 }

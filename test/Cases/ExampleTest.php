@@ -22,6 +22,15 @@ class ExampleTest extends HttpTestCase
     public function testExample()
     {
         $this->assertTrue(true);
-        $this->assertTrue(is_array($this->get('/')));
+
+        $name = 'admin';
+        $password = 'admin';
+
+        $res = $this->get('/index/login', ['name' => $name, 'password' => $password]);
+
+        $this->assertTrue(is_array($res));
+        $this->assertSame(200, $res['code']);
+        $this->assertSame($name, $res['data']['name']);
+        $this->assertTrue($res['data']['status']);
     }
 }
