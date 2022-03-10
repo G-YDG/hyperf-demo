@@ -30,10 +30,4 @@ RUN set -ex \
 
 WORKDIR /opt/www
 
-VOLUME /opt/www
-
 COPY . /opt/www
-
-RUN composer install --no-dev -o && php bin/hyperf.php
-
-ENTRYPOINT ["php", "/opt/www/bin/hyperf.php", "start"]

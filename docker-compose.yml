@@ -7,6 +7,7 @@ services:
   site:
     build: ./
     container_name: hyperf-demo
+    command: bash -c "composer install && php bin/hyperf.php start"
     environment:
       - APP_ENV=${APP_ENV}
       - TIMEZONE=Asia/Shanghai
