@@ -9,24 +9,11 @@
 
 
 # 如何运行
-### 修改docker-compose
-修改docker-compose中的启动命令为以下所示。
+### 环境变量
 ```
-php -S 127.0.0.1:1100
+cp .env.example .env
 ```
 ### 启动
-```
-docker-compose up -d
-```
-### 进入容器
-```
-docker-compose exec work bash 
-```
-### composer
-```
-composer install
-```
-### 重新运行
 ```
 docker-compose up -d
 ```
