@@ -24,6 +24,7 @@ class ExampleTest extends HttpTestCase
         $this->assertTrue(true);
 
         $name = 'admin';
+
         $password = 'admin';
 
         $res = $this->get('/index/login', ['name' => $name, 'password' => $password]);
