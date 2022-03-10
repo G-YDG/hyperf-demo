@@ -26,7 +26,7 @@ class IndexController extends AbstractController
         return $this->success(
             [
                 'method' => $method,
-                'message' => "Hello {$user}.",
+                'message' => "Hello {$user}. This is FQ",
             ]
         );
     }
